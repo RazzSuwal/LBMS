@@ -1,0 +1,66 @@
+<div class="billing-form">
+  <div class="billing-card">
+    <div class="billing-header">
+      <h2>Billing</h2>
+    </div>
+
+    <div class="billing-content" [formGroup]="createBillingForm">
+      <!-- Customer Information -->
+      <div class="form-group-row">
+        <div class="form-group">
+          <label for="documentNo">Document No:</label>
+          <input type="number" formControlName="documentNo" id="documentNo" placeholder="Enter document number">
+        </div>
+        <div class="form-group">
+          <label for="customerName">Customer Name:</label>
+          <input type="text" id="customerName" formControlName="customerName" placeholder="Enter customer name">
+        </div>
+        <div class="form-group">
+          <label for="mobileNumber">Mobile Number:</label>
+          <input type="text" id="mobileNumber" formControlName="mobileNumber" placeholder="Enter mobile number">
+        </div>
+      </div>
+
+      <!-- Product Information -->
+      <div class="product-section">
+        <table>
+          <thead>
+            <tr>
+              <th>Product Name</th>
+              <th>Quantity</th>
+              <th>Rate</th>
+              <th>Amount</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody formArrayName="products">
+            <tr *ngFor="let product of products.controls; let i = index" [formGroupName]="i">
+              <td><input type="text" formControlName="productName" placeholder="Enter product name" class="product-name"></td>
+              <td><input type="number" formControlName="quantity" placeholder="Enter quantity" class="product-quantity"></td>
+              <td><input type="number" formControlName="rate" placeholder="Enter rate" class="product-rate"></td>
+              <td><input type="number" formControlName="amount" placeholder="Amount" class="product-amount" ></td>
+              <td><button type="button" (click)="removeProduct(i)">Remove</button></td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="button" (click)="addProduct()">Add Product</button>
+      </div>
+
+      <!-- Total Calculation -->
+      <div class="totals-section">
+        <div class="form-group">
+          <label for="discount" class="black">Discount:</label>
+          <input type="number" formControlName="discount" id="discount" placeholder="Enter discount">
+        </div>
+        <div class="form-group">
+          <label for="grandTotal" class="black">Grand Total:</label>
+          <input type="number" formControlName="grandTotal" id="grandTotal" placeholder="Grand total">
+        </div>
+      </div>
+    </div>
+
+    <div class="billing-actions">
+      <button type="button" (click)="addBilling()">Submit Billing</button>
+    </div>
+  </div>
+</div>

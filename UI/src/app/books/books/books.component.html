@@ -1,0 +1,47 @@
+<div class="container">
+  <h2>Book List</h2>
+  <div>
+    <button mat-raised-button color="accent" routerLink="/addbooks">Add New Book</button>
+  </div>
+  <!-- Not required in datatable -->
+  <!-- <div class="form-group">
+    <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchTerm" (input)="search()">
+  </div> -->
+
+  <!-- <table  #dataTable class="display row-border hover"> -->
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dttrigger">
+    <thead>
+      <tr>
+        <th>SN</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Price</th>
+        <th>Ordered</th>
+        <th>Category</th>
+        <th>Subcategory</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books; let i = index">
+        <td>{{ (pageNumber - 1) * pageSize + i + 1 }}</td>
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.price }}</td>
+        <td>{{ book.ordered ? 'Yes' : 'No' }}</td>
+        <td>{{ book.category }}</td>
+        <td>{{ book.subCategory }}</td>
+        <td>
+          <button class="btn btn-sm btn-primary" [routerLink]="['/editbook', book.id]">Edit</button>
+          <button class="btn btn-sm btn-danger" (click)="deleteBook(book.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- <div class="pagination">
+    <button class="btn btn-primary" (click)="prevPage()" [disabled]="pageNumber <= 1">Previous</button>
+    <span>{{ pageNumber }}</span>
+    <button class="btn btn-primary" (click)="nextPage()" [disabled]="books.length < pageSize">Next</button>
+  </div> -->
+</div>

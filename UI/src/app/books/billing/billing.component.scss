@@ -1,0 +1,152 @@
+.billing-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  .billing-card {
+    width: 80%;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+
+    .billing-header {
+      text-align: center;
+      margin-bottom: 20px;
+
+      h2 {
+        font-size: 24px;
+        color: #333;
+      }
+    }
+
+    .billing-content {
+      .form-group-row {
+        display: flex;
+        justify-content: space-between;
+
+        .form-group {
+          flex: 1;
+          margin-right: 10px;
+          margin-bottom: 15px;
+
+          &:last-child {
+            margin-right: 0;
+          }
+
+          label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+          }
+
+          input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+          }
+        }
+      }
+
+      .product-section {
+        margin-top: 20px;
+
+        table {
+          width: 100%;
+          border-collapse: collapse;
+
+          thead {
+            tr {
+              background-color: #f4f4f4;
+
+              th {
+                color: black;
+                padding: 10px;
+                text-align: left;
+                border: 1px solid #ddd;
+              }
+            }
+          }
+
+          tbody {
+            tr {
+              td {
+                padding: 10px;
+                border: 1px solid #ddd;
+
+                input {
+                  width: 100%;
+                  padding: 8px;
+                  border: 1px solid #ccc;
+                  border-radius: 4px;
+                  font-size: 16px;
+                }
+
+                .add-btn {
+                  padding: 8px 12px;
+                  font-size: 14px;
+                  background-color: #007bff;
+                  color: #fff;
+                  border: none;
+                  border-radius: 4px;
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .totals-section {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+
+        .form-group {
+          flex: 1;
+          margin-right: 10px;
+
+          &:last-child {
+            margin-right: 0;
+          }
+
+          label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+          }
+
+          input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            outline: none;
+          }
+        }
+      }
+    }
+
+    .billing-actions {
+      text-align: center;
+      margin-top: 20px;
+
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+.black{
+  color: black;
+}

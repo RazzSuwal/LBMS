@@ -1,0 +1,48 @@
+<div class="">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Edit Books</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-grid-list cols="2" rowHeight="100px" gutterSize="10px" [formGroup]="editBookFrom">
+        <mat-grid-tile>
+          <mat-form-field color="accent">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" placeholder="Enter title" [(ngModel)]="book.title">
+            <mat-error>Field is required!</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field color="accent">
+            <mat-label>Author</mat-label>
+            <input matInput formControlName="author" placeholder="Enter author" [(ngModel)]="book.author">
+            <mat-error>Field is required!</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field color="accent">
+            <mat-label>Price</mat-label>
+            <input matInput formControlName="price" placeholder="Enter price" [(ngModel)]="book.price">
+            <mat-error>Field is required!</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field color="accent">
+            <mat-label>Book Category</mat-label>
+            <mat-select formControlName="category" placeholder="Select Category" [(ngModel)]="book.bookCategoryId">
+              @for (item of category; track category) {
+                <mat-option value={{item.id}}>{{item.subCategory}}</mat-option>
+              }
+            </mat-select>
+            <mat-error>Field is required!</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="accent" (click)="editBook()">Update</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

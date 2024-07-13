@@ -1,0 +1,49 @@
+<div class="">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Add Books</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-grid-list cols="2" rowHeight="100px" gutterSize="10px" [formGroup]="addBookFrom">
+        <mat-grid-tile>
+          <mat-form-field color="accent">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" placeholder="Enter title">
+            <mat-error>Field is required!</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field color="accent">
+            <mat-label>Author</mat-label>
+            <input matInput  formControlName="author" placeholder="Enter author">
+            <mat-error>Field is required!</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field color="accent">
+            <mat-label>Price</mat-label>
+            <input matInput formControlName="price" placeholder="Enter price">
+            <mat-error>Field is required!</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field color="accent">
+            <mat-label>Book Category</mat-label>
+            <mat-select formControlName="category" placeholder="Select Category">
+              @for (item of category; track category) {
+              <mat-option value={{item.id}}>{{item.subCategory}}</mat-option>
+            }
+              <!-- Add more mat-option elements as needed -->
+            </mat-select>
+            <mat-error>Field is required!</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="accent" (click)="addbooks()">Add</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
